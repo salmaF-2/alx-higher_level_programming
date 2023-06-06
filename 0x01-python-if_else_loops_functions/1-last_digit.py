@@ -6,11 +6,10 @@ if number < 0:
     last_digit *= -1
 else:
     last_digit = number % 10
-    output = f"Last digit of {number:d} is {last_digit:d}"
     if last_digit > 5:
-        output += "and is greater than 5"
+        output = f"and is greater than 5"
     elif last_digit == 0:
-        output += "and is 0"
+        output = f"and is 0"
     elif last_digit < 6:
-        output += "and is less than 6 and not 0"
-        print(output)
+        output = f"and is less than 6 and not 0"
+        print(f"Last digit of {number:d} is {last_digit:d} {output}")
