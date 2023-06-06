@@ -5,4 +5,3 @@ for number in range(0, 100):
     else:
         separator = ", "
     print("{:02d}".format(number), end=separator)
-
