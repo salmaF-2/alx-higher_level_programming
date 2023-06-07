@@ -7,6 +7,8 @@ def uppercase(str):
         else:
             upper += char
     return upper
+
+
 for ascii in range(122, 97 - 1, -1):
     if ascii % 2 == 1:
         ascii = ord(uppercase(chr(ascii)))
