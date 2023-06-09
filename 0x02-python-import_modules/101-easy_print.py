@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-import builtins
-builtins.print("#pythoniscool")
+with open(1, 'w') as stdout:
+    stdout.write("#pythoniscool\n")
