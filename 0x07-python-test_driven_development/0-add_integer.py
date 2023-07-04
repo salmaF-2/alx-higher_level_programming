@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
 add_integer:
-    the "0-add_integer" module 
-    define the function add_integer(a, b)
+the "0-add_integer" module
+define the function add_integer(a, b)
 """
 
 
@@ -18,8 +18,7 @@ def add_integer(a, b=98):
             int: The addition of a and b.
 
     Raises:
-            TypeError: If a or b is not an integer or float.
-            
+            TypeError: If a or b is not an integer or float
     """
     if type(a) is not int and type(a) is not float:
         raise TypeError("a must be an integer")

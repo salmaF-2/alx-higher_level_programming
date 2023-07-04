@@ -6,20 +6,20 @@ by the parameter "div", and returns the divided matrix
 
 
 def matrix_divided(matrix, div):
-        """ 
+        """
         Description:
             Divides all elements of a matrix by "div"
             must be a list of lists of integers or floats
             matrix must be of the same size
             "div" is an int/float or is 0
         Args:
-            matrix (list): A list of lists containing integers or floats.
-            div (int or float): The number to divide the matrix elements by.
+            matrix (list): A lists containing integers or floats.
+            div (int or float): number to div matrix elements by.
         Returns:
-            list: new matrix with elements divided by div rounded 
+            list: new matrix with elements divided by div rounded
             to 2 decimal places
         Raises:
-            TypeError: not a list of lists of integers/floats or div is not number.
+            TypeError: not lists of int/floats or div is not number
             ZeroDivisionError: If div is equal to 0.
         """
 
