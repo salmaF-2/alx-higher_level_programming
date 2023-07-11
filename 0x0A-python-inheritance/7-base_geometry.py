@@ -7,7 +7,7 @@ class BaseGeometry:
     pass
 
     def area(self):
-        """ 
+        """
         the area
         raises an Exception
         """
