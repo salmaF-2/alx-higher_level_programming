@@ -1,48 +1,71 @@
 #!/usr/bin/python3
+"""square module"""
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
+    """class square"""
+
     def __init__(self, size, x=0, y=0, id=None):
-        """ square class inherits from Rectangle """
+        """initializes a square"""
         super().__init__(size, size, x, y, id)
+
+    def __str__(self):
+        """string representation of a square"""
+        r = "[{}] ({}) ".format(self.__class__.__name__, self.id)
+        c = "{}/{} - {}".format(self.x, self.y, self.width)
+        return r + c
 
     @property
     def size(self):
-        """ size func """
+        """getter for size"""
         return self.width
 
     @size.setter
     def size(self, value):
-        """ size setter func """
+        """setter for size"""
+        if type(value) != int:
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
         self.width = value
         self.height = value
 
     def update(self, *args, **kwargs):
-        """ Update the class Square by adding the public method """
-        if len(args) > 0:
-            self.id = args[0]
-        if len(args) > 1:
-            self.size = args[1]
-        if len(args) > 2:
-            self.x = args[2]
-        if len(args) > 3:
-            self.y = args[3]
+        """update square that assigns attributes to args"""
+        if args and len(args) != 0:
+            for i in range(len(args)):
+                if i == 0:
+                    if args[i] is None:
+                        self.__init__(
+                                self.width, self.width, self.x, self.y)
+                    else:
+                        self.id = args[i]
+                if i == 1:
+                    self.width = args[i]
+                    self.height = args[i]
+                if i == 2:
+                    self.x = args[i]
+                if i == 3:
+                    self.y = args[i]
+        else:
+            if kwargs and len(kwargs) != 0:
+                for key, value in kwargs.items():
+                    if key == "id":
+                        if value is None:
+                            self.__init__(
+                                    self.width, self.width, self.x, self.y)
+                        else:
+                            self.id = value
+                    elif key == "size":
+                        self.width = value
+                        self.height = value
+                    elif key == "x":
+                        self.x = value
+                    elif key == "y":
+                        self.y = value
 
-        if len(args) == 0 and len(kwargs) > 0:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
-
-        def to_dictionary(self):
-            """ dictionary representation """
-        return {
-            'id': self.id,
-            'size': self.width,
-            'x': self.x,
-            'y': self.y
-        }
-
-    def __str__(self):
-        """ square str """
-        return "[Square] ({}) {}/{} - {}".format(
-            self.id, self.x, self.y, self.width
-        )
+    def to_dictionary(self):
+        """returns dictionary rep of a square"""
+        return {"id": self.id, "size": self.size,
+                "x": self.x, "y": self.y}
