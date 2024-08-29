@@ -1,3 +1,4 @@
+#!/usr/bin/node
 const a = process.argv.slice(2);
 
 if (a.length === 0) {
@@ -7,4 +8,3 @@ if (a.length === 0) {
 } else {
     console.log("Arguments found");
 }
-
